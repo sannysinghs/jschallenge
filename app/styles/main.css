@@ -58,26 +58,42 @@ body {
 .marketing p + h4 {
   margin-top: 28px;
 }
-
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-  .container {
-    max-width: 730px;
-  }
-
-  /* Remove the padding we set earlier */
-  .header,
-  .marketing,
-  .footer {
-    padding-left: 0;
-    padding-right: 0;
-  }
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 30px;
-  }
-  /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
-    border-bottom: 0;
-  }
+.lot {
+  width: 80px;
+  height: 80px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
 }
+.lot>span {
+  font-family: cursive;
+  font-size: 50px;
+  font-weight: normal;
+}
+.active-item{
+  background: #F1F1F1;
+}
+.form-search{
+  margin: -5px -10px;
+}
+.custom-form-control{
+  padding: 0px 10px;
+  border: 1px solid #ccc;
+  border-radius: 0px;
+  margin-right: -2px;
+  height: 29px;
+}
+.custom-panel-footer{
+  background: none;
+  text-align: center;
+}
+.custom-pagination{
+  margin: 5px 0px;
+}
+.custom-list-item{
+  border-radius: 0px !important;
+}
+.parking-map-view{
+  text-align: center;
+}
+.angular-google-map-container { height: 300px; }

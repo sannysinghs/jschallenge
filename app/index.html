@@ -28,7 +28,17 @@
     </div>
 
     <div class="container">
-        <div ng-include="'views/main.html'" ng-controller="MainCtrl"></div>
+        <div ui-view>
+            <div class="jumbotron">
+              <h2>Welcome to smove's JSChallenge!</h2>
+              <p class="lead">
+                Now it's your turn.</br>
+                Blow us away with your awesomeness.
+              </p>
+              <p><a class="btn btn-lg btn-success" ui-sref="home">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
+              <p>ps. go have a look at main.js for the api call</p>
+            </div>
+        </div>
     </div>
 
     <div class="footer">
@@ -42,6 +52,9 @@
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/lodash/dist/lodash.compat.js"></script>
+    <script src="bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
