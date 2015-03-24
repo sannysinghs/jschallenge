@@ -15,50 +15,52 @@
         </form>
 
 	  </div>
+
 	  <div class="row parking-content">
-	  <!-- parking body content -->
-	  <div class="col-md-6">
-		  <!-- Parking body -->
-		   <div class="list-group"> 
-		  	<a  ng-repeat="park in parks | orderBy:predicate | filter:namepark | pagination:startpos:size " class="list-group-item custom-list-item" ng-class="{'active-item' : isCurrentTab(park) }" ng-click="detail(park)" >
-				 <!-- parking lots number -->
-				  <div class="media-left">
-				    <div class="lot" car-bg >
-				     <span> {{ park.cars_available }} </span> 
-				     <small> lot(s) </small> 
-				   	</div>
-				  </div>
-				  <!-- parking content -->
-				  <div class="media-body">
-				    <h4 class="media-heading">{{park.parking_shortname}}</h4>
-				    <p>{{park.parking_name}}</p>
-					<span ng-show="park.has_season_parking" class="label label-primary">
-						 season parking <span class="glyphicon glyphicon-ok-circle"></span>
-					</span>
+		  <!-- parking body content -->
+		  <div class="col-md-6">
+			  <!-- Parking body -->
+			   <div class="list-group"> 
+			  	<a  ng-repeat="park in parks | orderBy:predicate | filter:namepark | pagination:startpos:size " class="list-group-item custom-list-item" ng-class="{'active-item' : isCurrentTab(park) }" ng-click="detail(park)" >
+					 <!-- parking lots number -->
+					  <div class="media-left">
+					    <div class="lot" car-bg >
+					     <span> {{ park.cars_available }} </span> 
+					     <small> lot(s) </small> 
+					   	</div>
+					  </div>
+					  <!-- parking content -->
+					  <div class="media-body">
+					    <h4 class="media-heading">{{park.parking_shortname}}</h4>
+					    <p>{{park.parking_name}}</p>
+						<span ng-show="park.has_season_parking" class="label label-primary">
+							 season parking <span class="glyphicon glyphicon-ok-circle"></span>
+						</span>
 
-					<span ng-show="!park.has_season_parking" class="label label-danger">
-						 season parking <span class="glyphicon glyphicon-remove-circle"></span>
-					</span>
+						<span ng-show="!park.has_season_parking" class="label label-danger">
+							 season parking <span class="glyphicon glyphicon-remove-circle"></span>
+						</span>
 
-				   </div>
-				</a>	
-		   </div>
-	  </div>
-	  <!-- parking map view -->
-	  <div class="col-md-4 col-md-offset-1 parking-map-view">
-	  	<h4>{{ parkdetail.parking_shortname }}</h4>
-	  	<p>{{ parkdetail.parking_name }}</p>
+					   </div>
+					</a>	
+			   </div>
+		  </div>
+		  <!-- parking map view -->
+		  <div class="col-md-4 col-md-offset-1 parking-map-view">
+		  	<h4>{{ parkdetail.parking_shortname }}</h4>
+		  	<p>{{ parkdetail.parking_name }}</p>
 
-		<ui-gmap-google-map center='map.center' zoom='map.zoom'>
-			 <ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id">
-		    </ui-gmap-marker>
-		</ui-gmap-google-map>
+			<ui-gmap-google-map center='map.center' zoom='map.zoom'>
+				 <ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id">
+			    </ui-gmap-marker>
+			</ui-gmap-google-map>
 
-	  </div>
+		  </div>
 	  </div>
 
 		<!-- parking footer -->
 	   <div class="panel-footer custom-panel-footer">
+	   <!-- pagination -->
 			<nav>
 			  <ul class="pagination custom-pagination">
 			    <li ng-click="prev()">
@@ -80,9 +82,6 @@
 	   </div>
 	  
    </div>
-
-
-   
 
   </div>
 </div>

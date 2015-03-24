@@ -22,6 +22,7 @@ angular.module('jschallengeApp')
   $scope.parks = [];
   $scope.predicate = '+id';
 
+  //serve api call
   $http.get(url).success(function(result) {
     $scope.parks = result;
     for (var i = 0; i < result.length / $scope.size; i++) {
@@ -45,22 +46,25 @@ angular.module('jschallengeApp')
     console.error(err);
   });
 
+  //Next 5 records will be shown until reached end 
   $scope.next = function(){
     if ( $scope.startpos >= $scope.pages.length - 1) {
       return false;
     }
     $scope.startpos += 1; 
   };
+  //Previous 5 records will be shown until reached start
   $scope.prev = function(){
     if ($scope.startpos === 0) {
       return false;
     }
     $scope.startpos -= 1; 
   };
+  //set current page position
   $scope.setPos = function(number){
     $scope.startpos = number;
   };
-
+  
   $scope.isCurrentTab = function(park){
     return $scope.parkdetail.id === park.id;
   };
@@ -68,6 +72,9 @@ angular.module('jschallengeApp')
   $scope.isActive = function(pos){
     return $scope.startpos === pos;
   };
+
+  //Alogorithum to search nearest palce 
+  //base on current locations and parking locations 
   $scope.getPoints = function(pt1,pt2){
     var R = 6371; // km Radius of earth
     var dLat = ($scope.toRad(pt2.lat-pt1.lat));
@@ -81,11 +88,12 @@ angular.module('jschallengeApp')
 
   };
 
+  //convert deg to radian
   $scope.toRad = function(val){
     return val * (Math.PI / 180);
   };
 
-
+  //search nearest parking locations 
   $scope.nearme = function(){
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(pos){
@@ -110,6 +118,7 @@ angular.module('jschallengeApp')
  
   };
 
+  //retrieved detail upon click 
   $scope.detail = function(park){
     $scope.parkdetail = park;
     $scope.map = { center: { latitude: $scope.parkdetail.latitude, longitude: $scope.parkdetail.longitude }, zoom: 16 };
@@ -123,10 +132,9 @@ angular.module('jschallengeApp')
     };
   };
 
-
 })
 .filter('pagination',function(){
-
+  
   return function(input,start,size){
     if (input) {
       start = start * size;
